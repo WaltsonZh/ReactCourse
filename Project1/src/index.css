@@ -32,7 +32,9 @@ body {
 }
 
 .Main {
-    padding: 55px 25px;
+    background: url("/src/images/react-bg.png") no-repeat ;
+    background-position: right bottom;
+    padding: 55px 25px 40px;
     color: white;
 }
 
@@ -42,7 +44,8 @@ body {
 }
 
 .main-title {
-    font-size: 40px;
+    font-size: 39px;
+    letter-spacing: -2px;
 }
 
 .main-list {
@@ -52,5 +55,10 @@ body {
 
 .main-list > li {
     /* border: white solid 1px; */
-    padding-block: 10px;
+    padding-block: 6px;
+}
+
+.main-list > li::marker {
+    color: #61DAFB;
+    font-size: 1.4em;
 }
