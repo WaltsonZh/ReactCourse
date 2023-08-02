@@ -1,0 +1,18 @@
+* {
+    font-family: Poppins, sans-serif;
+}
+
+body {
+	margin: 0;
+}
+
+.Navbar {
+	display: flex;
+	height: 70px;
+	box-shadow: 0px 3px 7.5px rgba(0, 0, 0, 0.1);
+}
+
+.Navbar > img {
+	padding: 22px 30px;
+	max-width: 100px;
+}
