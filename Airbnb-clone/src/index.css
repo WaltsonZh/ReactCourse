@@ -51,4 +51,12 @@ body {
 	line-height: 110%;
 }
 
+.Card {
+	margin: 50px 36px;
+	font-size: 12px;
+	line-height: 1.3rem;
+}
 
+.grey {
+	color: #918E9B; 
+}
