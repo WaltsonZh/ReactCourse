@@ -11,9 +11,9 @@ export default function Card(data) {
     return (
         <div className='Card'>
             {badgeText && <div className='Card-badge'>{badgeText}</div>}
-            <img src={`/src/images/${data.coverImg}`} />
+            <img src={`/images/${data.coverImg}`} />
             <div>
-                <img src='/src/images/star.png' />
+                <img src='/images/star.png' />
                 <span> {data.stats.rating} </span>
                 <span className='grey'>
                     ({data.stats.reviewCount}) • {data.location}
