@@ -1,16 +1,28 @@
 import React from 'react'
 
-export default function Card({img, rating, reviewCount, country, title, price}) {
+export default function Card(data) {
+    let badgeText
+    if (data.openSpots === 0) {
+        badgeText = 'SOLD OUT'
+    } else if (data.location === 'Online') {
+        badgeText = 'Online'
+    }
+
     return (
         <div className='Card'>
-            <img src={`/src/images/${img}`} />
+            {badgeText && <div className='Card-badge'>{badgeText}</div>}
+            <img src={`/src/images/${data.coverImg}`} />
             <div>
                 <img src='/src/images/star.png' />
-                <span> {rating}</span>
-                <span className='grey'>({reviewCount}) • {country}</span>
+                <span> {data.stats.rating} </span>
+                <span className='grey'>
+                    ({data.stats.reviewCount}) • {data.location}
+                </span>
             </div>
-            <p>{title}</p>
-            <p><b>From ${price}</b> / Person</p>
+            <p>{data.title}</p>
+            <p>
+                <b>From ${data.price}</b> / Person
+            </p>
         </div>
     )
 }
