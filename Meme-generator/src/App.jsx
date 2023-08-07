@@ -1,7 +1,10 @@
 import React from 'react'
+import Header from './components/Header'
 
 export default function App() {
     return (
-        <h1>Meme Generator</h1>
+        <div className='App'>
+            <Header />
+        </div>
     )
 }
