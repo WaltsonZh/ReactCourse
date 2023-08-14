@@ -47,13 +47,13 @@ section {
 	padding: 36px;
 }
 
-.Meme {
+.form {
 	display: grid;
 	grid-template: 35px 40px / 1fr 1fr;
 	gap: 17px;
 }
 
-.Meme > input {
+.form > input {
 	width: 230px;
 	height: 35px;
 	border-radius: 5px;
@@ -61,7 +61,7 @@ section {
 	text-indent: 11px;
 }
 
-.Meme > button {
+.form > button {
 	width: 100%;
 	height: 40px;
 	border-radius: 5px;
@@ -75,9 +75,46 @@ section {
 	cursor: pointer;
 }
 
+.meme {
+	position: relative;
+}
+
 .memeImg {
 	height: 268px;
 	max-width: 100%;
 	margin: 36px 0;
 	border-radius: 2px;
+}
+
+.memeText {
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 50px 0;
+    padding: 0 5px;
+    font-family: impact, sans-serif;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px;
+    text-shadow:
+        2px 2px 0 #000,
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        0 2px 0 #000,
+        2px 0 0 #000,
+        0 -2px 0 #000,
+        -2px 0 0 #000,
+        2px 2px 5px #000;
+}
+
+.bottom {
+    bottom: 0;
+}
+
+.top {
+    top: 0;
 }
