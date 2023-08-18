@@ -5,12 +5,12 @@ import Split from 'react-split'
 import { nanoid } from 'nanoid'
 
 export default function App() {
-    const [notes, setNotes] = React.useState(JSON.parse(localStorage.getItem('notes')) || [])
+    const [notes, setNotes] = React.useState(() => JSON.parse(localStorage.getItem('notes')) || [])
     const [currentNoteId, setCurrentNoteId] = React.useState((notes[0] && notes[0].id) || '')
 
-	React.useEffect(() => {
-		localStorage.setItem("notes", JSON.stringify(notes))
-	}, [notes])
+    React.useEffect(() => {
+        localStorage.setItem('notes', JSON.stringify(notes))
+    }, [notes])
 
     function createNewNote() {
         const newNote = {
@@ -22,11 +22,23 @@ export default function App() {
     }
 
     function updateNote(text) {
-        setNotes((oldNotes) =>
-            oldNotes.map((oldNote) => {
-                return oldNote.id === currentNoteId ? { ...oldNote, body: text } : oldNote
-            })
-        )
+        setNotes((oldNotes) => {
+            let newNotes = []
+            for (let i = 0; i < oldNotes.length; i++) {
+                if (currentNoteId === oldNotes[i].id) {
+                    newNotes.unshift({ ...oldNotes[i], body: text })
+                } else {
+                    newNotes.push(oldNotes[i])
+                }
+            }
+            return newNotes
+        })
+    }
+
+    function deleteNote(event, noteId) {
+        event.stopPropagation()
+        console.log(noteId)
+        setNotes((notes) => notes.filter((note) => note.id !== noteId))
     }
 
     function findCurrentNote() {
@@ -41,7 +53,7 @@ export default function App() {
         <main>
             {notes.length > 0 ? (
                 <Split sizes={[30, 70]} direction='horizontal' className='split'>
-                    <Sidebar notes={notes} currentNote={findCurrentNote()} setCurrentNoteId={setCurrentNoteId} newNote={createNewNote} />
+                    <Sidebar notes={notes} currentNote={findCurrentNote()} setCurrentNoteId={setCurrentNoteId} newNote={createNewNote} deleteNote={deleteNote} />
                     {currentNoteId && notes.length > 0 && <Editor currentNote={findCurrentNote()} updateNote={updateNote} />}
                 </Split>
             ) : (
