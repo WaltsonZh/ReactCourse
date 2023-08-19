@@ -12,6 +12,8 @@ export default function App() {
         localStorage.setItem('notes', JSON.stringify(notes))
     }, [notes])
 
+    const currentNote = notes.find((note) => note.id === currentNoteId) || notes[0]
+
     function createNewNote() {
         const newNote = {
             id: nanoid(),
@@ -53,8 +55,8 @@ export default function App() {
         <main>
             {notes.length > 0 ? (
                 <Split sizes={[30, 70]} direction='horizontal' className='split'>
-                    <Sidebar notes={notes} currentNote={findCurrentNote()} setCurrentNoteId={setCurrentNoteId} newNote={createNewNote} deleteNote={deleteNote} />
-                    {currentNoteId && notes.length > 0 && <Editor currentNote={findCurrentNote()} updateNote={updateNote} />}
+                    <Sidebar notes={notes} currentNote={currentNote} setCurrentNoteId={setCurrentNoteId} newNote={createNewNote} deleteNote={deleteNote} />
+                    {currentNoteId && notes.length > 0 && <Editor currentNote={currentNote} updateNote={updateNote} />}
                 </Split>
             ) : (
                 <div className='no-notes'>
