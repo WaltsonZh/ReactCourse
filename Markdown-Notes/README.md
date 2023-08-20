@@ -1,10 +1,8 @@
-# React + Vite
+# Scrimba Course - Markdown Notes (project 4)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Build a note web app using react-mde to implement markdown editing.
+Notes are saved using firebase's firestore
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+([visit site](https://wzh-scrimbacourse-memegenerator.netlify.app))
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/dea33406-addf-455f-9469-16ce5be13b71/deploy-status)](https://app.netlify.com/sites/idyllic-sunflower-67d1f0/deploys)
