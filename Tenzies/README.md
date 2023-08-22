@@ -4,5 +4,4 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a52ac163-8391-42d4-b13d-a3245d570402/deploy-status)](https://app.netlify.com/sites/rainbow-jelly-3e83ee/deploys)
