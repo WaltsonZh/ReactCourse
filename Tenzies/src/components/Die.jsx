@@ -5,7 +5,7 @@ export default function Die({ value, isHeld, holdDice }) {
 
   return (
     <button className='Die' style={style} onClick={holdDice}>
-      {value}
+      <img src={`/dice-${value}.svg`} />
     </button>
   )
 }

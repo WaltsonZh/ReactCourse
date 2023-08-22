@@ -6,6 +6,7 @@ body {
   margin: 0;
   display: flex;
   height: 100vh;
+  width: 100vw;
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, hsl(144, 71%, 62%), hsl(203, 65%, 12%));
@@ -47,7 +48,7 @@ body {
 .dice-container {
   display: grid;
   gap: 18px;
-  margin: 30px 34px;
+  margin: 10px 34px 15px;
   grid-template-columns: repeat(5, 1fr);
 }
 
@@ -60,13 +61,28 @@ body {
   font-size: 20px;
   color: hsl(203, 65%, 12%);
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 
-.rollBtn {
+.Die > img {
+  width: 36px;
+  height: 36px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 34px;
+  align-items: center;
+}
+
+.container > button {
   background: hsl(248, 100%, 60%);
   color: white;
   border: none;
-  width: 92px;
+  min-width: 92px;
+  padding-inline: 14px;
   height: 36px;
   border-radius: 4px;
   font-size: 16px;
@@ -74,6 +90,11 @@ body {
   cursor: pointer;
 }
 
-.rollBtn:active {
+.container > button:active {
   background: hsl(248, 100%, 40%);
+}
+
+.time {
+  margin: 5px;
+  grid-column: -1 / 1;
 }
