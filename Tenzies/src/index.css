@@ -97,4 +97,6 @@ body {
 .time {
   margin: 5px;
   grid-column: -1 / 1;
+  font-family: Inter, sans-serif;
+  font-size: 0.8em;
 }

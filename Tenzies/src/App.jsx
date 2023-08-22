@@ -10,6 +10,7 @@ export default function App() {
   const [time, setTime] = useState(0)
   const [play, setPlay] = useState(false)
   const timer = useRef()
+  const [best, setBest] = useState(0)
 
   const diceElements = dice.map((die) => {
     return <Die key={die.id} value={die.value} isHeld={die.isHeld} holdDice={() => holdDice(die.id)} />
@@ -27,7 +28,17 @@ export default function App() {
       startTimer()
     } else {
       clearInterval(timer.current)
-      // timer.current = 0
+      const tmp = localStorage.getItem('best')
+      if (tmp === null) {
+        localStorage.setItem('best', time)
+        setBest(time)
+      } else if ((tmp === '0' || parseInt(tmp) >= time) && time !== 0) {
+        localStorage.setItem('best', time)
+        setBest(time)
+      } else {
+        setBest(parseInt(localStorage.getItem('best')))
+      }
+      timer.current = 0
     }
   }, [play])
 
@@ -78,7 +89,7 @@ export default function App() {
   function formatTime(time) {
     const sec = time % 60
     const min = Math.floor(time / 60)
-    return `${min < 10 ? `0${min}` : min} : ${sec < 10 ? `0${sec}` : sec}`
+    return `${min < 10 ? `0${min}` : min}:${sec < 10 ? `0${sec}` : sec}`
   }
 
   return (
@@ -91,7 +102,9 @@ export default function App() {
         <div className='container'>
           <button onClick={tenzies ? newGame : rollDice}>{tenzies ? 'New Game' : 'Roll'}</button>
           <p className='rolls'>Rolls: {rolls}</p>
-          <p className='time'>Time used: {formatTime(time)}</p>
+          <p className='time'>
+            Time used: {formatTime(time)} {tenzies ? <span className='time'>Best: {formatTime(best)}</span> : ''}
+          </p>
         </div>
       </div>
     </div>
